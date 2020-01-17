@@ -20,8 +20,14 @@ export class UserStateService {
   }
 
   //Getter, setter for Category ID
-  setCategoryId(categoryId:number){
-    this.categoryId = categoryId;
+  setCategoryId(categoryId?:number){
+    if (categoryId){
+      this.categoryId = categoryId;
+    } else {
+      this.categoryId = null;
+      this.category = "All Category"
+    }
+    
   }
 
   getCategoryId(){

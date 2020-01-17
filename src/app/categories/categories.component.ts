@@ -43,6 +43,8 @@ export class CategoriesComponent implements OnInit {
   goToQuestions(categoryId?:number, categoryName?:string){
     if(categoryId) {
       this.userStateService.setCategoryId(categoryId);
+    } else {
+      this.userStateService.setCategoryId();
     }
     if(categoryName) {
       this.userStateService.setCategoryName(categoryName);
