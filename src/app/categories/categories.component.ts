@@ -1,10 +1,10 @@
-import { CommonService } from '@service/common.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 //Services
 import { TriviaApiService } from '../../service/trivia-api.service'
 import { UserStateService } from '../../service/user-state.service'
+import { CommonService } from '../../service/common.service';
 
 //models
 import { Category } from '../../models/category';
