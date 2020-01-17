@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 
 //models
-import { Question } from '@models/question';
-import { Category } from '@models/category';
+import { Question } from '../models/question';
+import { Category } from '../models/category';
 import { TriviaApiService } from './trivia-api.service';
 
 @Injectable({

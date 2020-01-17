@@ -11,9 +11,9 @@ import { RadioButtonModule } from 'primeng/radiobutton';
 import { ButtonModule } from 'primeng/button';
 
 //Components
-import { AppComponent } from '@app/app.component';
-import { CategoriesComponent } from '@app/categories/categories.component';
-import { QuestionsComponent } from '@app/questions/questions.component';
+import { AppComponent } from '../app/app.component';
+import { CategoriesComponent } from '../app/categories/categories.component';
+import { QuestionsComponent } from '../app/questions/questions.component';
 import { ResultsComponent } from './results/results.component';
 
 const appRoutes: Routes = [

@@ -2,12 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 //Services
-import { UserStateService } from '@service/user-state.service';
-import { TriviaApiService } from '@service/trivia-api.service';
-import { CommonService } from '@service/common.service';
+import { UserStateService } from '../../service/user-state.service';
+import { TriviaApiService } from '../../service/trivia-api.service';
+import { CommonService } from '../../service/common.service';
 
 //models
-import { Question } from '@models/question';
+import { Question } from '../../models/question';
 
 @Component({
   selector: 'app-questions',

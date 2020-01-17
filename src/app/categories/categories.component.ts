@@ -3,11 +3,11 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 //Services
-import { TriviaApiService } from '@service/trivia-api.service'
-import { UserStateService } from '@service/user-state.service'
+import { TriviaApiService } from '../../service/trivia-api.service'
+import { UserStateService } from '../../service/user-state.service'
 
 //models
-import { Category } from '@models/category';
+import { Category } from '../../models/category';
 
 @Component({
   selector: 'app-categories',

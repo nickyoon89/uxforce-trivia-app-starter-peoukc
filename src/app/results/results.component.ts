@@ -2,12 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 //Services
-import { UserStateService } from '@service/user-state.service';
-import { CommonService } from '@service/common.service';
+import { UserStateService } from '../../service/user-state.service';
+import { CommonService } from '../../service/common.service';
 
 //models
-import { Question } from '@models/question';
-import { ChartData } from '@models/chartData';
+import { Question } from '../../models/question';
+import { ChartData } from '../../models/chartData';
 
 @Component({
   selector: 'app-results',
