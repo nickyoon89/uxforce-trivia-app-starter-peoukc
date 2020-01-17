@@ -1,0 +1,11 @@
+.result{
+    margin: 2em 0;
+}
+
+.c-result-div{
+    max-width: 85em;
+    min-width: 65%;
+    width: 80%;
+    margin: 2em auto;
+
+}

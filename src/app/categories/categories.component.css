@@ -1,0 +1,22 @@
+button{
+    margin: 0.1em;
+}
+
+h1{
+    margin: 1em auto;
+}
+.c-category-container{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.c-category {
+    -webkit-flex: 1; /* Safari 6.1+ */
+    -ms-flex: 1; /* IE 10 */
+    flex: 20em;
+}
+
+.c-category-all {
+    width: 100%;
+    background-color: rgb(8, 87, 139);
+}

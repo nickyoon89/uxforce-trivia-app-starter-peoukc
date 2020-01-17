@@ -1,0 +1,12 @@
+
+<div class="c-question-container">
+  <h2>{{categoryName}}</h2>
+  <ng-container *ngFor="let question of triviaQuestions; let i = index">
+      <p [hidden]="categoryId">{{question.category}}</p>
+      <p><b>{{ i+1 }}. {{ commonService.decodeHtml(question.question) }}</b> ( Difficulty: {{ question.difficulty }} )</p>
+      <div *ngFor="let answer of question.answers">
+        <p-radioButton name="{{question.question}}" [value]="answer" (click)="chooseAnswer(i,answer)" label="{{ commonService.decodeHtml(answer) }}"></p-radioButton>
+      </div>
+  </ng-container>
+</div>
+<button pButton (click)="goToResults()" label="Results"></button>

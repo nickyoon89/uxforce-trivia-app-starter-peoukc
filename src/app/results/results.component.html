@@ -1,0 +1,26 @@
+  <div class="c-result-div">
+    <p-chart type="pie" [data]="chartData"></p-chart>
+  </div>
+  <p-table [value]="userQnA">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Question</th>
+            <th>Correct Answer</th>
+            <th>Your Answer</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-qna>
+        <tr>
+            <td><b>{{commonService.decodeHtml(qna.question)}}</b></td>
+            <td>{{commonService.decodeHtml(qna.correct_answer)}}</td>
+            <td>{{commonService.decodeHtml(qna.user_answer||"Not Chosen")}}</td>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="footer">
+        <tr>
+          <th>Result:</th>
+          <td style="text-align: center;" colspan="2">{{100 * (this.rightAnswerCnt/this.questionCnt)}} % ({{this.rightAnswerCnt}} out of {{this.questionCnt}})</td>
+        </tr>
+      </ng-template>
+  </p-table>
+<button pButton (click)="goToCategories()" label="Go Back to Category Select"></button>

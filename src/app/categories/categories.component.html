@@ -1,0 +1,7 @@
+<div class="c-category-container">
+  <button pButton class="c-category-all" (click)="goToQuestions()" label="All Category" style="font-size:larger; font-weight: bold;"></button>
+  <ng-container *ngFor="let category of triviaCategories; let i = index">
+      <button *ngIf= " i % 2 === 1 " pButton class="c-category" (click)="goToQuestions(category.id, category.name)" label="{{ category.name}}"></button>
+      <button *ngIf = "i % 2 !== 1 " class="c-category" style="background-color: rgb(5, 58, 94);" pButton (click)="goToQuestions(category.id, category.name)" label="{{ category.name}}"></button>
+  </ng-container>
+</div>
