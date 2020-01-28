@@ -8,7 +8,7 @@ import { CommonService } from '../../service/common.service';
 
 //models
 import { Question } from '../../models/question';
-import { Category } from 'models/category';
+import { Category } from '../../models/category';
 
 @Component({
   selector: 'app-questions',
