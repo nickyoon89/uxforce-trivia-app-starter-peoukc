@@ -41,15 +41,15 @@ export class CategoriesComponent implements OnInit {
    * @param {string} categoryName     category Name.
    */
   goToQuestions(categoryId?:number, categoryName?:string){
-    if(categoryId) {
-      this.userStateService.setCategoryId(categoryId);
-    } else {
-      this.userStateService.setCategoryId();
-    }
     if(categoryName) {
       this.userStateService.setCategoryName(categoryName);
     }
-    this.router.navigateByUrl('/questions');
+    if(categoryId) {
+      this.userStateService.setCategoryId(categoryId);
+      this.router.navigateByUrl(`/questions/${categoryId}`);
+    } else {
+      this.userStateService.setCategoryId();
+      this.router.navigateByUrl(`/questions`);
+    }
   }
-
 }

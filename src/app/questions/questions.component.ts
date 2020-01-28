@@ -8,6 +8,7 @@ import { CommonService } from '../../service/common.service';
 
 //models
 import { Question } from '../../models/question';
+import { Category } from 'models/category';
 
 @Component({
   selector: 'app-questions',
@@ -17,6 +18,7 @@ import { Question } from '../../models/question';
 export class QuestionsComponent implements OnInit {
 
   categoryId:number;
+  paramCategoryId:number;
   categoryName:string;
   triviaQuestions: Question[];
 
@@ -30,25 +32,39 @@ export class QuestionsComponent implements OnInit {
 
   ngOnInit() {
     this.commonService.toTheTop(document);
-    
-    this.categoryId = this.userStateService.getCategoryId();
-    this.categoryName = this.userStateService.getCategoryName();
-    this.triviaApiService.getQuestions(this.categoryId)
-    .subscribe( res =>{
-        this.triviaQuestions = res.results;
-        this.triviaQuestions = this.triviaQuestions.map(value => {
-          let asnwers = Object.assign([],value.incorrect_answers);
-          asnwers.push(value.correct_answer);
-          if(value.type !== `boolean`){
-            this.commonService.shuffle(asnwers);
-          }else if(asnwers[0]===`False`){
-            asnwers.reverse();
+    this.paramCategoryId = +this.activatedRoute.snapshot.paramMap.get(`categoryId`);
+    let categories: Category[];
+    this.triviaApiService.getCategory().subscribe(
+      res => {
+        const paramCategoryId = this.paramCategoryId;
+        categories = res.trivia_categories;
+        const categoryFound = categories.find(category => category.id === paramCategoryId);
+        if (categoryFound){
+          this.userStateService.setCategoryId(categoryFound.id);
+          this.userStateService.setCategoryName(categoryFound.name);
+        } else {
+          this.userStateService.setCategoryId();
+        }
+        this.categoryId = this.userStateService.getCategoryId();
+        this.categoryName = this.userStateService.getCategoryName();
+        this.triviaApiService.getQuestions(this.categoryId)
+        .subscribe( res =>{
+            this.triviaQuestions = res.results;
+            this.triviaQuestions = this.triviaQuestions.map(value => {
+              let asnwers = Object.assign([],value.incorrect_answers);
+              asnwers.push(value.correct_answer);
+              if(value.type !== `boolean`){
+                this.commonService.shuffle(asnwers);
+              }else if(asnwers[0]===`False`){
+                asnwers.reverse();
+              }
+              value.answers=asnwers;
+              return value
+            });
           }
-          value.answers=asnwers;
-          return value
-        });
+        )
       }
-    ) 
+    )     
   }
 
   /**

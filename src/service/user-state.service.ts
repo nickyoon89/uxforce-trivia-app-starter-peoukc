@@ -2,9 +2,6 @@ import { Injectable } from '@angular/core';
 
 //models
 import { Question } from '../models/question';
-import { Category } from '../models/category';
-import { TriviaApiService } from './trivia-api.service';
-
 @Injectable({
   providedIn: 'root'
 })
@@ -13,9 +10,7 @@ export class UserStateService {
   private category:string;
   private userQnA: Question[];
 
-  private categories: Category[];
-
-  constructor(private triviaApiService: TriviaApiService) { 
+  constructor() { 
     this.category = "All Category" //in case user try to approach to question page directly
   }
 
@@ -27,7 +22,6 @@ export class UserStateService {
       this.categoryId = null;
       this.category = "All Category"
     }
-    
   }
 
   getCategoryId(){

@@ -19,6 +19,7 @@ import { ResultsComponent } from './results/results.component';
 const appRoutes: Routes = [
   { path: 'categories', component: CategoriesComponent },
   { path: 'questions', component: QuestionsComponent },
+  { path: 'questions/:categoryId', component: QuestionsComponent },
   { path: 'results', component: ResultsComponent },
   { path: '**',
     redirectTo: '/categories',
